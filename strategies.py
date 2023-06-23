@@ -18,11 +18,6 @@ if len(sys.argv) != 2:
 
 file = sys.argv[1]
 
-# Plot statuses for all used strategies.
-#
-# Each strategy may log arbitrary status values and this plots all of them continuously.
-
-# Get the number of strategies first
 data = load_data(file);
 number_of_strategies = len(data['strategies']);
 fig, ax = plt.subplots(number_of_strategies, 1, figsize = (6, 10));

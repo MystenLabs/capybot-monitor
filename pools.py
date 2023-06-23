@@ -27,7 +27,6 @@ pools = {
     '0xaa57c66ba6ee8f2219376659f727f2b13d49ead66435aa99f57bb008a64a8042': 'Cetus WBTC/USDC',
 }
 
-# Plot of prices of all monitored pools
 fig, ax = plt.subplots(1,1)
 
 def animate_prices(j):
