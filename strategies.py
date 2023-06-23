@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import numpy as np
 import matplotlib.pyplot as plt
 import datetime as dt
 import matplotlib.dates as md
