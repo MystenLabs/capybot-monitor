@@ -4,7 +4,7 @@
 The Capybot Monitor is a collection of Python scripts to monitor the status of a running instance of a [Capybot trading bot](https://github.com/MystenLabs/capybot). It produces plots of the price development and key status indicators used by Capybot. The plots are updated live.
 
 ## Installation and Running
-First download and install the Capybot trading bot as instructed in the [Capybot repository]](https://github.com/MystenLabs/capybot). Run the Capybot and store the output to a file
+First download and install the Capybot trading bot as instructed in the [Capybot repository](https://github.com/MystenLabs/capybot). Run the Capybot and store the output to a file
 ```
 npm run start > capybot.log
 ```
