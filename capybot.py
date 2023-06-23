@@ -3,7 +3,7 @@
 
 import json
 
-# Load all data from the output of a Capybot
+# Load all data from the output of a Capybot. Each line is a log message in JSON format.
 def load_data(file):
     prices = {}
     strategies = {}
@@ -18,10 +18,13 @@ def load_data(file):
                     continue
 
                 match data['msg']:
+                    # A price message for a swap pool
                     case "price":
                         entry = data['price']
                         price = entry['price'];
                         source = entry['source_uri'];
+
+                        # The first price is used as the relative offset
                         if source not in prices:
                             prices[source] = {
                                 'offset': entry['price'],
@@ -31,7 +34,7 @@ def load_data(file):
                         prices[source]['price'].append(price)
                         prices[source]['time'].append(data['time'] / 1000)
 
-                    # When starting, Capybot outputs all used strategies
+                    # When starting, Capybot outputs all used strategies. But note that this is only done once.
                     case "strategies":
                         for strategy in data['strategies']:
                             strategies[strategy] = {};
@@ -41,12 +44,14 @@ def load_data(file):
                                 'time': []  
                             }
 
+                    # Status from a strategy. This may contain arbitrary values decided by the strategy, so we just store everything.
                     case "strategy status":
                         strategy = data['uri']
                         entry = data['data'];
                         strategies[strategy]['statuses']['value'].append(entry)
                         strategies[strategy]['statuses']['time'].append(data['time'] / 1000)
 
+                    # A strategy returned a trade order. Store the time-stamp.
                     case "order":
                         strategy = data['strategy']
                         if strategy not in orders:
