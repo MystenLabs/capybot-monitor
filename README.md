@@ -16,4 +16,5 @@ This should show a window showing the development of the amount of coin B you wi
 <img src="./images/pools.png" alt="pools">
 
 The `strategies.py` script is started in the same way but produces plots of relevant variables for the trading strategies the Capybot is using. A red vertical line shows that the given strategy gave a trade order at this point in time.
+
 <img src="./images/strategies.png" alt="strategies">
